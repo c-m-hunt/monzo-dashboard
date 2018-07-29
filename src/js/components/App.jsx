@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import Dashbaord from './Dashboard'
 
 class App extends React.Component {
@@ -11,7 +10,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-
           <Route exact path='/' component={(props, state, params) => {
             return <Dashbaord {...this.props} />
           }} />

@@ -7,9 +7,9 @@ import {Provider} from 'react-redux'
 
 import bootstrap from 'bootstrap'
 
-import { fetchBalance } from './store/actions/monzo'
+import { fetchAccounts } from './store/actions/monzo'
 
-store.dispatch(fetchBalance())
+store.dispatch(fetchAccounts())
 
 ReactDOM.render(
   <Provider store={store}>

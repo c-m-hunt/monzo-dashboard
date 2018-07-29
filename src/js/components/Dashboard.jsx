@@ -1,8 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Balance from './Balance'
+import TransactionList from './TransactionList'
+
 class Dashbaord extends React.Component {
+  componentDidMount () {
+
+  }
+
   render () {
-    if (!this.props.balance) {
+    if (!this.props.account) {
       return (
         <h1>Dashboard</h1>
       )
@@ -10,24 +18,28 @@ class Dashbaord extends React.Component {
 
     return (
       <div>
-            Balance: {this.props.balance.balance}
+        <div>
+          <Balance account={this.props.account} />
+        </div>
+        <div>
+          <TransactionList account={this.props.account} />
+        </div>
       </div>
     )
   }
 }
 
 Dashbaord.propTypes = {
-
+  account: PropTypes.object
 }
 
 Dashbaord.defaultProps = {
-
+  account: null
 }
 
 function mapStateToProps (state) {
   return {
-    fetchingBalance: state.fetchingBalance,
-    balance: state.balance
+    account: state.currentAccount
   }
 }
 
