@@ -2,7 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
-import { balance } from './reducers/monzo'
+import { balance, balancePending } from './reducers/monzo'
 
 const logger = createLogger({
   diff: true,
@@ -11,7 +11,8 @@ const logger = createLogger({
 
 export default createStore(
   combineReducers({
-    balance
+    balance,
+    balancePending
   }),
   applyMiddleware(thunk, logger)
 )

@@ -1,0 +1,2 @@
+export const SET_BALANCE_PENDING = 'SET_BALANCE_PENDING'
+export const SET_BALANCE = 'SET_BALANCE'

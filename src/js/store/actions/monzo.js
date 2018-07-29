@@ -1,12 +1,19 @@
-export const SET_BALANCE_PENDING = 'SET_BALANCE_PENDING'
-export const SET_BALANCE = 'SET_BALANCE'
+import * as ActionTypes from './actionTypes'
 
 let baseUrl = 'https://api.monzo.com'
+let key = 'xxx'
+let accountId = 'xxx'
+
+export const fetchAccounts = () => {
+  return (dispatch) => {
+
+  }
+}
 
 export const fetchBalance = () => {
   return (dispatch) => {
     dispatch({
-      type: SET_BALANCE_PENDING,
+      type: ActionTypes.SET_BALANCE_PENDING,
       value: true
     })
 
@@ -22,12 +29,12 @@ export const fetchBalance = () => {
           .then(data => {
             data.balance = data.balance / 100
             dispatch({
-              type: SET_BALANCE,
+              type: ActionTypes.SET_BALANCE,
               balance: data
             })
 
             dispatch({
-              type: SET_BALANCE_PENDING,
+              type: ActionTypes.SET_BALANCE_PENDING,
               value: false
             })
           })

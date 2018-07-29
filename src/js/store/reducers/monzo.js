@@ -1,17 +1,24 @@
-import {
-  SET_BALANCE,
-  SET_BALANCE_PENDING
-} from './../actions/monzo'
+import * as ActionTypes from './../actions/actionTypes'
 
 const balanceReducer = (state = null, action) => {
   switch (action.type) {
-    case SET_BALANCE:
+    case ActionTypes.SET_BALANCE:
       return action.balance
     default:
       return state
   }
 }
 
+const balancePendingReducer = (state = null, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_BALANCE_PENDING:
+      return action.value
+    default:
+      return state
+  }
+}
+
 module.exports = {
-  balance: balanceReducer
+  balance: balanceReducer,
+  balancePending: balancePendingReducer
 }

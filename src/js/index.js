@@ -7,6 +7,10 @@ import {Provider} from 'react-redux'
 
 import bootstrap from 'bootstrap'
 
+import { fetchBalance } from './store/actions/monzo'
+
+store.dispatch(fetchBalance())
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

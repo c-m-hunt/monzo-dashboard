@@ -1,12 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchBalance } from '../store/actions/monzo'
 class Dashbaord extends React.Component {
-  componentDidMount () {
-    this.props.fetchBalance()
-  }
-
   render () {
     if (!this.props.balance) {
       return (
@@ -39,9 +33,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    fetchBalance: () => {
-      dispatch(fetchBalance())
-    }
+
   }
 }
 
