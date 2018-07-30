@@ -1,0 +1,3 @@
+module.exports = {
+    'monzo_secret_key': 'xxx'
+}

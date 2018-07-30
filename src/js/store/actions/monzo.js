@@ -1,7 +1,7 @@
 import * as ActionTypes from './actionTypes'
-
+import config from './../../config'
 let baseUrl = 'https://api.monzo.com'
-let key = 'xxx'
+let key = config.monzo_secret_key
 
 let getOptions = {
   headers: {
