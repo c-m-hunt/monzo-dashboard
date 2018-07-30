@@ -15,14 +15,13 @@ class Dashbaord extends React.Component {
         <h1>Dashboard</h1>
       )
     }
-
     return (
       <div>
         <div>
-          <Balance account={this.props.account} />
+          <Balance account={this.props.account} utils={this.props.utils} />
         </div>
         <div>
-          <TransactionList account={this.props.account} />
+          <TransactionList account={this.props.account} utils={this.props.utils} />
         </div>
       </div>
     )

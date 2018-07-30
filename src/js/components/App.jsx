@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import Dashbaord from './Dashboard'
+import * as Utils from './../utils'
 
 class App extends React.Component {
   render () {
@@ -11,7 +12,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Route exact path='/' component={(props, state, params) => {
-            return <Dashbaord {...this.props} />
+            return <Dashbaord {...this.props} utils={Utils} />
           }} />
         </div>
       </Router>

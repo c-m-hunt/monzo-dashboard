@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchTransactions } from '../store/actions/monzo'
+
 class TransactionList extends React.Component {
   componentDidMount () {
     if (this.props.account) {
@@ -21,12 +22,12 @@ class TransactionList extends React.Component {
         <h1>Loading transaction list</h1>
       )
     }
-
     return (
       <div>
         {this.props.transactions.map(trans => {
           return <div key={trans.id}>
-            {trans.description}
+            <div>{trans.description}</div>
+            <div>{this.props.utils.formatMoney(parseInt(trans.amount), trans.currency)}</div>
           </div>
         })}
       </div>

@@ -20,9 +20,10 @@ export const fetchTransactions = (accountId) => {
       .then(response => {
         response.json()
           .then(data => {
+            let transactions = data.transactions
             dispatch({
               type: ActionTypes.SET_TRANSACTIONS,
-              transactions: data.transactions
+              transactions: transactions
             })
 
             dispatch({
@@ -81,7 +82,7 @@ export const fetchBalance = (accountId) => {
       .then(response => {
         response.json()
           .then(data => {
-            data.balance = data.balance / 100
+            data.balance = data.balance
             dispatch({
               type: ActionTypes.SET_BALANCE,
               balance: data

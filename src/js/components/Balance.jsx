@@ -24,7 +24,7 @@ class Balance extends React.Component {
 
     return (
       <div>
-              Balance: {this.props.balance.balance}
+        Balance: {this.props.utils.formatMoney(this.props.balance.balance, this.props.balance.currency)}
       </div>
     )
   }
