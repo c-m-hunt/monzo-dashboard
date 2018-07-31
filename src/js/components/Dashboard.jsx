@@ -12,12 +12,15 @@ class Dashbaord extends React.Component {
       )
     }
     return (
-      <div className='dashboard'>
+      <div>
         <div className='balance-container'>
           <Balance account={this.props.account} utils={this.props.utils} />
         </div>
-        <div className='transaction-list-container'>
-          <TransactionList account={this.props.account} utils={this.props.utils} />
+        <div className='dashboard'>
+
+          <div className='transaction-list-container'>
+            <TransactionList account={this.props.account} utils={this.props.utils} />
+          </div>
         </div>
       </div>
     )

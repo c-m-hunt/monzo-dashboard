@@ -15,16 +15,17 @@ class Balance extends React.Component {
         <h1>Loading balance</h1>
       )
     }
-
     return (
-      <div className='d-flex w-100 justify-content-between'>
-        <div>
-          {this.props.account.description} <br />
-          Account number: {this.props.account.account_number} <br />
-          Sort code: {this.props.account.sort_code}
+      <nav class='navbar navbar-default navbar-light bg-light fixed-top'>
+        <div className='d-flex w-100 justify-content-between'>
+          <div>
+            {this.props.account.description} <br />
+            Account number: {this.props.account.account_number} <br />
+            Sort code: {this.props.account.sort_code}
+          </div>
+          <h1>{this.props.utils.formatMoney(this.props.balance.balance, this.props.balance.currency)}</h1>
         </div>
-        <h1>{this.props.utils.formatMoney(this.props.balance.balance, this.props.balance.currency)}</h1>
-      </div>
+      </nav>
     )
   }
 }

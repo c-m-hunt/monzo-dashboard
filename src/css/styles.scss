@@ -3,20 +3,18 @@
 $credit: #dfd;
 $debit: #fdd;
 
+
 body {
-    
-}
+    min-height: 2000px;
+    padding-top: 90px;
+  }
 
 .dashboard {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
     grid-template-areas:
-    'balance balance balance balance balance balance balance balance'
     'transaction-list transaction-list transaction-list . . . . . ';
-}
-
-.balance-container {
-    grid-area: balance;
 }
 
 .transaction-list-container {
