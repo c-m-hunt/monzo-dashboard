@@ -1,5 +1,6 @@
 import * as ActionTypes from './actionTypes'
 import config from './../../config'
+import moment from 'moment'
 let baseUrl = 'https://api.monzo.com'
 let key = config.monzo_secret_key
 
@@ -20,7 +21,16 @@ export const fetchTransactions = (accountId) => {
       .then(response => {
         response.json()
           .then(data => {
-            let transactions = data.transactions
+            // Set the created date to a date object
+            let transactions = data.transactions.map(trans => {
+              trans.created = moment(trans.created)
+              return trans
+            })
+
+            // Sort transactions by date descending
+            transactions.sort((a, b) => {
+              return a.created > b.created ? -1 : 1
+            })
             dispatch({
               type: ActionTypes.SET_TRANSACTIONS,
               transactions: transactions

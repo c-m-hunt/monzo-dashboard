@@ -5,10 +5,6 @@ import Balance from './Balance'
 import TransactionList from './TransactionList'
 
 class Dashbaord extends React.Component {
-  componentDidMount () {
-
-  }
-
   render () {
     if (!this.props.account) {
       return (
@@ -16,11 +12,11 @@ class Dashbaord extends React.Component {
       )
     }
     return (
-      <div>
-        <div>
+      <div className='dashboard'>
+        <div className='balance-container'>
           <Balance account={this.props.account} utils={this.props.utils} />
         </div>
-        <div>
+        <div className='transaction-list-container'>
           <TransactionList account={this.props.account} utils={this.props.utils} />
         </div>
       </div>

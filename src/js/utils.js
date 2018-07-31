@@ -4,5 +4,6 @@ let currencySymbols = {
   'GBP': '£'
 }
 export const formatMoney = (amount, currency) => {
-  return `${currencySymbols[currency]} ${numeral(amount / 100).format('0,0.00')}`
+  let currencySymbol = currencySymbols.hasOwnProperty(currency) ? currencySymbols[currency] : currency
+  return `${currencySymbol} ${numeral(amount / 100).format('0,0.00')}`
 }

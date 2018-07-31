@@ -16,6 +16,18 @@ class TransactionList extends React.Component {
     }
   }
 
+  renderLoad (trans) {
+    return (
+      <div className='row'>
+
+        <div className='col-12'>
+          <h5>{trans.description} </h5><span className='badge badge-secondary'>{trans.category}</span>
+
+        </div>
+      </div>
+    )
+  }
+
   render () {
     if (!this.props.transactions) {
       return (
@@ -23,11 +35,45 @@ class TransactionList extends React.Component {
       )
     }
     return (
-      <div>
+      <div className='list-group'>
         {this.props.transactions.map(trans => {
-          return <div key={trans.id}>
-            <div>{trans.description}</div>
-            <div>{this.props.utils.formatMoney(parseInt(trans.amount), trans.currency)}</div>
+          return <div key={trans.id} className={'list-group-item ' + (trans.amount > 0 ? 'credit' : 'debit')}>
+            <div className='d-flex w-100 justify-content-between'>
+              <div className='col-8'>
+                {trans.merchant &&
+                <div className='row'>
+                  <div className='col-2'>
+                    {trans.merchant.logo !== '' &&
+                      <img className='img-fluid img-thumbnail' src={trans.merchant.logo} alt={trans.merchant.name} />
+                    }
+                  </div>
+
+                  <div className='col-10'>
+                    <h5>{trans.merchant.name} </h5><span className='badge badge-secondary'>{trans.category}</span>
+                    <div>
+                      {trans.created.format('DD MMM YYYY, HH:mm')}
+                    </div>
+                  </div>
+                </div>
+                }
+                {!trans.merchant && this.renderLoad(trans) }
+              </div>
+              <div className='text-right'>
+                <div>
+                  <h5 className='mb-1'>{this.props.utils.formatMoney(parseInt(trans.amount), trans.currency)}</h5>
+                </div>
+
+                { trans.local_currency !== trans.currency && trans.local_amount !== trans.amount &&
+                <div>
+                  <h6 className='mb-1'>{this.props.utils.formatMoney(parseInt(trans.local_amount), trans.local_currency)}</h6>
+                </div>
+                }
+              </div>
+
+            </div>
+            {/* <div class="d-flex w-100 justify-content-between">
+              <p class="mb-1">{trans.description}</p>
+            </div> */}
           </div>
         })}
       </div>

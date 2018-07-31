@@ -1,5 +1,33 @@
 @import './../node_modules/bootstrap/scss/bootstrap.scss';
 
+$credit: #dfd;
+$debit: #fdd;
+
 body {
     
 }
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+    'balance balance balance balance balance balance balance balance'
+    'transaction-list transaction-list transaction-list . . . . . ';
+}
+
+.balance-container {
+    grid-area: balance;
+}
+
+.transaction-list-container {
+    grid-area: transaction-list;
+}
+
+.credit {
+    background-color: $credit;
+}
+
+.debit {
+    background-color: $debit;
+}
+
